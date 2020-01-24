@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:httpj="http://cxf.apache.org/transports/http-jetty/configuration"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://cxf.apache.org/transports/http-jetty/configuration http://cxf.apache.org/schemas/configuration/http-jetty.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-http.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-http-jetty.xml"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:addressing-server.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <httpj:engine-factory id="addressing-server-jetty-config">
+        <httpj:engine port="${http.listener.port}">
+            <httpj:threadingParameters maxThreads="100" minThreads="20"/>
+        </httpj:engine>
+    </httpj:engine-factory>
+
+    <jaxrs:server id="addressingServer" address="${http.listener.address}"
+                  depends-on="addressing-server-jetty-config">
+        <jaxrs:serviceBeans>
+            <ref bean="addressingRestService"/>
+            <ref bean="SearchDAService"/>
+<<<<<<< HEAD
+=======
+            <ref bean="restWithPojo"/>
+>>>>>>> 1753269a2aabc6eb4383e1fd10dd5ac6df397a1c
+        </jaxrs:serviceBeans>
+
+
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+        </jaxrs:providers>
+    </jaxrs:server>
+
+
+
+</beans>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <mkdir dir="D:\clone\original\2. REST\digital-addressing\addressing-server/target/generated-resources/appassembler/jsw/addressing-server/logs"/>
+  <copy todir="D:\clone\original\2. REST\digital-addressing\addressing-server/target/generated-resources/appassembler/jsw/addressing-server/conf" overwrite="true">
+    <fileset dir="src/main/resources"/>
+  </copy>
+</target>
+</project>
