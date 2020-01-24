@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="addressingRestService" class="com.entc.addressing.rest.AddressingRestService"/>
+       <bean id="SearchDAService" class="com.entc.addressing.rest.SearchDAService"/>
+<<<<<<< HEAD
+=======
+       <bean id="restWithPojo" class="com.entc.addressing.rest.RestWithPojo"/>
+>>>>>>> 1753269a2aabc6eb4383e1fd10dd5ac6df397a1c
+
+</beans>
